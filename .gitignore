@@ -1,0 +1,20 @@
+node_modules
+package
+build
+twamp-*.tgz
+
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# .tfplan files
+*.tfplan
+
+# WebStorm
+.idea
