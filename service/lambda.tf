@@ -21,6 +21,7 @@ resource "aws_lambda_function" "fn_main" {
       consumer_secret = "${var.consumer_secret}"
       bearer_token = "${var.bearer_token}"
       screen_name = "${var.screen_name}"
+      trim_user = "${var.trim_user}"
       count = "${var.count}"
       uris = "${var.uris}"
       uri_separator = "${var.uri_separator}"

@@ -65,6 +65,12 @@ variable "screen_name" {
   type = "string"
 }
 
+// truncate user information
+variable "trim_user" {
+  type = "string"
+  default = "0"
+}
+
 // how many tweets to fetch
 variable "count" {
   type = "string"
