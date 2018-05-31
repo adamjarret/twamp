@@ -15,6 +15,7 @@ function run(cfg, uris, processURI, callback)
     const frequency = cfg.frequency_minutes ? parseInt(cfg.frequency_minutes, 10) : 15;
     const processorParams = {
         indent: cfg.json_indent,
+        screen_name: cfg.screen_name,
         dateOutputFormat: cfg.date_format,
         maxAge: frequency * 60
     };

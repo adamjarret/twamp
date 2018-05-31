@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack -p",
     "pack": "npm pack | xargs tar -tf",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./bin/cli.js handle --cfg test/twamp.config.json"
   },
   "keywords": [
     "tweet",

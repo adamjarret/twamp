@@ -2,6 +2,7 @@ node_modules
 package
 build
 twamp-*.tgz
+twamp.config.json
 
 #  Local .terraform directories
 **/.terraform/*

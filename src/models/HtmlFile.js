@@ -4,10 +4,11 @@ const moment = require('moment');
 const dateInputFormat = 'ddd MMM DD HH:mm:ss ZZ YYYY';
 const AbstractTextFile = require('./AbstractTextFile').Model;
 
-function HtmlFile(pathOrS3Uri, maxAge, dateOutputFormat)
+function HtmlFile(pathOrS3Uri, maxAge, screen_name, dateOutputFormat)
 {
     AbstractTextFile.call(this, pathOrS3Uri, maxAge);
 
+    this.screen_name = screen_name; // remember screen_name instead of getting it from the tweet (to support trim_user)
     this.dateOutputFormat = dateOutputFormat || 'h:mm A [UTC] - MMM D, YYYY';
 }
 
@@ -36,9 +37,9 @@ Object.assign(HtmlFile.prototype, AbstractTextFile.prototype, {
             const created_at = moment(tweet.created_at, dateInputFormat).utc().format(this.dateOutputFormat);
             this.log(util.format('%s:\n - %s\n + %s', sel, oldId, tweetId));
             el.attr('data-tweetid', tweetId); // use attr not data so DOM is updated
-            el.find('.tweet-href').attr('href', util.format('https://twitter.com/%s/status/%s', tweet.user.screen_name, tweetId));
+            el.find('.tweet-href').attr('href', util.format('https://twitter.com/%s/status/%s', this.screen_name, tweetId));
             el.find('.tweet-text').text(tweet.text);
-            el.find('.tweet-screen_name').text(tweet.user.screen_name);
+            el.find('.tweet-screen_name').text(this.screen_name);
             el.find('.tweet-created_at').text(created_at);
             return true;
         }
@@ -65,7 +66,7 @@ Object.assign(HtmlFile.prototype, AbstractTextFile.prototype, {
 
 function transform(tweets, params, pathOrS3Uri, callback)
 {
-    return new HtmlFile(pathOrS3Uri, params.maxAge, params.dateOutputFormat).transform(tweets, callback);
+    return new HtmlFile(pathOrS3Uri, params.maxAge, params.screen_name, params.dateOutputFormat).transform(tweets, callback);
 }
 
 exports.Model = HtmlFile;
