@@ -6,7 +6,7 @@
   "bin": "./bin/cli.js",
   "scripts": {
     "build": "webpack -p",
-    "pack": "npm pack . && tar -xzf twamp-*.tgz && echo && find package -type f",
+    "pack": "npm pack | xargs tar -tf",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
