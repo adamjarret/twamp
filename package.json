@@ -1,6 +1,6 @@
 {
   "name": "twamp",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Update files on S3 with content from Twitter",
   "main": "index.js",
   "bin": "./bin/cli.js",
