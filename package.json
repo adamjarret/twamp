@@ -6,7 +6,7 @@
   "bin": "./bin/cli.js",
   "scripts": {
     "build": "webpack -p",
-    "pack": "npm pack | xargs tar -tf",
+    "pack": "npm pack --dry-run",
     "test": "node ./bin/cli.js handle --cfg test/twamp.config.json"
   },
   "keywords": [
@@ -28,17 +28,17 @@
   "author": "Adam Jarret <adam@atj.me>",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.0",
-    "aws-sdk": "^2.219.1",
+    "async": "^2.6.1",
+    "aws-sdk": "^2.336.0",
     "cheerio": "^1.0.0-rc.2",
     "lodash.pickby": "^4.6.0",
     "minimist": "^1.2.0",
-    "moment": "^2.22.0",
-    "request": "^2.85.0",
+    "moment": "^2.22.2",
+    "request": "^2.88.0",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   }
 }
